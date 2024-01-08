@@ -2,11 +2,18 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+// Define la URL base dependiendo del entorno
+const baseUrl = isProduction
+  ? 'https://frontendnotes-dcda18d7dadc.herokuapp.com'
+  : 'http://localhost:3000';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  port: process.env.PORT || 3000,
+  base: baseUrl,  // Establece la URL base
+
   build: {
     outDir: 'dist', // O el directorio que desees
     rollupOptions: {
