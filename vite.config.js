@@ -14,6 +14,10 @@ export default defineConfig({
   plugins: [react()],
   base: baseUrl,  // Establece la URL base
 
+  server: {
+    port: 3000, // Cambia el puerto del servidor de desarrollo aquí
+  },
+
   build: {
     outDir: 'dist', // O el directorio que desees
     rollupOptions: {
